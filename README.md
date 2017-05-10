@@ -32,7 +32,7 @@ This command will create a `tsconfig.json` file in the root of the project folde
 }
 ```
 
-This has all the comments removed, but you can checkout the complete generated `tsconfig.json` [here](tsconfig.json)
+This has all the comments removed, but you can checkout the complete generated `tsconfig.json` [here](examples/tsconfig.json)
 
 You can checkout [Compiler Options] for more information.
 
