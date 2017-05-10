@@ -153,3 +153,54 @@ enum Coffee {
 }
 ```
 
+## Functions
+
+```ts
+function combine(a: string, b: string) : string {
+  return `${a}${b}`;
+}
+```
+
+This function is a function that returns a string, takes two arguments, both of which are strings.
+
+### Anonymous functions
+
+```ts
+let combine = function(a: string, b: string) : string {
+  return `${a}${b}`;
+}
+```
+
+This is another way of writing methods. 
+
+### Optional Parameters
+
+```ts
+function someFunc(a: string, b: string, c?: string) {
+  return a + b + c;
+}
+```
+
+This function will return the proper result we called it 
+
+    someFunc('Hello', 'World'); // "HelloWorld"
+
+### Default Parameters
+
+```ts
+function someFunc(a: string, b: string, c: string = 'no') {
+  return a + b + c;
+}
+```
+
+This will have `c` default to `no` if it is not passed in.
+
+### Rest Parameters 
+
+```ts
+function someFunc(...args: string []) : string{
+  return args.join('');
+}
+```
+
+Rest parameters allows function to collect the arguments in an array. 
