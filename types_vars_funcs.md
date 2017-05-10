@@ -1,4 +1,4 @@
-# Types
+# Types, Variables, and Functions
 
 ```ts
 let str : string = 'Hello';
