@@ -42,13 +42,17 @@ You can create multiple `tsconfig.json` files within the same project directory,
 
 ## Types
 
-    let str : string = 'Hello';
-    let num : number = 5;
-    let boo : boolean = true;
+```ts
+let str : string = 'Hello';
+let num : number = 5;
+let boo : boolean = true;
+```
 
 We are telling the compiler the type of each variable is. If we try to assign
 
-    str = 5;
+```ts
+str = 5;
+```
 
 We would get an error:
 
@@ -153,7 +157,7 @@ enum Coffee {
 }
 ```
 
-## Functions
+### Functions
 
 ```ts
 function combine(a: string, b: string) : string {
@@ -250,3 +254,106 @@ Even though we are using `any` as the type specifier for the function, this is e
     canMath(true, true)
 
 This will cause an error.
+
+### Union Types
+
+Allows us to express a type as the combination of of two or more types.
+
+    let union : string | number;
+    union = 'hello';
+    union = 42;
+
+This is valid and will not cause any compiler error.
+
+### Type guards
+
+If we use union types as type specifiers for our function, the compiler will throw an error. It cannot tell what type an argument is.
+
+For example,
+
+```ts
+function noGuard(arg1: string | number, arg2: string | number) : string | number {
+  return arg1 + arg2;
+}
+```
+
+Type guards are expressions that perform a check on the type.
+
+```ts
+function withGuard(arg1: string | number, arg2: string | number) : string | number {
+  if (typeof arg1 === 'string') {
+    // perform logic
+  }
+  if (typeof arg === 'number1' && typeof arg2 === 'number') {
+    // perform logic with numbers
+  }
+
+  // default case
+  return arg1.toString() + arg2.toString();
+}
+```
+
+This allow use to handle all possible scenarios.
+
+### Type aliases
+
+We can create aliases for union types.
+
+```ts
+type StringOrNumber = string | number;
+
+function add(arg1: StringOrNumber, arg2: StringOrNumber) : string {
+  return arg1.toString() + arg2.toString();
+}
+```
+
+We can also create aliases for function signatures
+
+```ts
+type CallbackWithString = (string) => void;
+
+function func(callback: CallbackWithString) {
+  // logic stuff
+}
+```
+
+### Null and undefined
+
+Any argument that is not passed in as part of the function call is `undefined` in JavaScript. However, TypeScript can guard against that.
+
+```ts
+function doNothing(arg: null | number) : void {
+  console.log('success');
+}
+doNothing(); // will cause a compiler error.
+```
+
+> Supplied parameters do not match any signature of call target.
+
+WE can allow for `undefined` by creating an union with `undefined`.
+
+    let x : number | undefined;
+
+If we try to assign `x = null;`, we will get a compiler error.
+
+## Object rest and spread
+
+TypeScript allows for rest and spread operators for objects.
+
+For example,
+
+```ts
+let original = { name: 'Type', goodness: 10 };
+let copycat = { ...original };
+
+copycat.name === 'Type';
+copycat.goodness === 10;
+```
+
+We can also use the operator for multiple objects,
+
+```ts
+copycat = { ...original, ...anotherCopy };
+```
+
+Note: the properties are copied incrementally. So, if two objects have the same property with the same name, the object property that was specified last will take precedence.
