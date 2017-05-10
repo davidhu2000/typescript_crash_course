@@ -58,7 +58,7 @@ We would get an error:
 
     let arr : number[] = [1,2,3];
 
-For the array, we are telling the compiler we want an array of numbers. We also have `for...of` and `for...in` to iterate through arrays. 
+For the array, we are telling the compiler we want an array of numbers. We also have `for...of` and `for...in` to iterate through arrays.
 
 ```ts
 let arr : string [] = ['What', 'is', 'up?'];
@@ -171,7 +171,7 @@ let combine = function(a: string, b: string) : string {
 }
 ```
 
-This is another way of writing methods. 
+This is another way of writing methods.
 
 ### Optional Parameters
 
@@ -181,7 +181,7 @@ function someFunc(a: string, b: string, c?: string) {
 }
 ```
 
-This function will return the proper result we called it 
+This function will return the proper result we called it
 
     someFunc('Hello', 'World'); // "HelloWorld"
 
@@ -195,7 +195,7 @@ function someFunc(a: string, b: string, c: string = 'no') {
 
 This will have `c` default to `no` if it is not passed in.
 
-### Rest Parameters 
+### Rest Parameters
 
 ```ts
 function someFunc(...args: string []) : string{
@@ -203,4 +203,50 @@ function someFunc(...args: string []) : string{
 }
 ```
 
-Rest parameters allows function to collect the arguments in an array. 
+Rest parameters allows function to collect the arguments in an array.
+
+### Function callbacks
+
+```ts
+function someFunction(str: string, callback: (str: string) => void) {
+    console.log('Running function');
+    callback(str);
+}
+```
+
+Here the function `someFunction` is created with a string and a fucntion argument. We specified that the callback takes a string argument. We use the `() =>` syntax to indicate that the callback is a function. The `void` keyword denotes that the function does not return a value.
+
+We can call the function like so:
+
+    someFunction('test', cbFunction);
+
+We are defining a callback function signature, so if the function passed in does not match the signature, the compiler will throw an error.
+
+### Function overloads
+
+Since JavaScript is a dynamic language, we often want to call a function using different argument types. To account for this in TypeScript, we can use a specific synatx, called function overloads.
+
+```ts
+function canMath(x: string, y: string): string;
+function canMath(x: number, y: number): number;
+function canMath(x: any, y: any): any {
+  return x + y;
+}
+
+add(1,1)      // returns 2;
+add('1','1')  // returns "11";
+```
+
+We specific a function overload signature that takes two strings and returns a string.
+Then we specify another overload signature take takes two numbers and returns a number.
+
+To over the function, we need to use the exact syntax as above:
+
+- Write the function signatures without the function body.
+- Write the function with body, and **make sure to use the type specifier of `any`**. Or else, the compiler will throw an error.
+
+Even though we are using `any` as the type specifier for the function, this is essentially hidden by this convention. We are limiting this function to only take two strings or two numbers.
+
+    canMath(true, true)
+
+This will cause an error.
