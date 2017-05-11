@@ -1,4 +1,4 @@
-# Interfaces, Classes, Inheritance
+# Interfaces, Classes
 
 ## Interfaces
 
@@ -13,7 +13,7 @@ interface IRandom {
 let Random : IRandom = { id: 1, name: 'random' };
 ```
 
-We are saying that this object must have the `id` and `name` properties. If we try to create an instance of `IRandom` without both, the compiler will throw an error. 
+We are saying that this object must have the `id` and `name` properties. If we try to create an instance of `IRandom` without both, the compiler will throw an error.
 
 ### Optional properties
 
@@ -186,7 +186,7 @@ Trying to set the value of `name` to something else will cause a compiler error.
 
 ### Class property accessors
 
-An accessor is a function that is called when a user either sets or gets a property. We can use those functions to detect when a user gets/sets any value the class. 
+An accessor is a function that is called when a user either sets or gets a property. We can use those functions to detect when a user gets/sets any value the class.
 
 ```ts
 class AccessExample {
@@ -242,7 +242,7 @@ console.log(StaticProperty.count); // print 2
 
 ## Namespaces
 
-We can use namespaces to deal with the situation when two classes share the same name, which will cause a compiler error. 
+We can use namespaces to deal with the situation when two classes share the same name, which will cause a compiler error.
 
 ```ts
 namespace NameSpace {

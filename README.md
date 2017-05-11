@@ -43,4 +43,5 @@ You can create multiple `tsconfig.json` files within the same project directory,
 ## Table of Contents
 
 1. [types, varibles, and functions](types_vars_funcs.md)
-2. [interfaces, classes, and inheritance](interfaces_classes_inheritance.md)
+2. [interfaces and classes](interfaces_classes.md)
+3. [inheritance](inheritance.md)
