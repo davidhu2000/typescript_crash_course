@@ -184,3 +184,76 @@ class NoWriteAllowed {
 
 Trying to set the value of `name` to something else will cause a compiler error.
 
+### Class property accessors
+
+An accessor is a function that is called when a user either sets or gets a property. We can use those functions to detect when a user gets/sets any value the class. 
+
+```ts
+class AccessExample {
+  private id: number;
+  get id() {
+    return this.id;
+  }
+  set id(value: number) {
+    this.id = value;
+  }
+}
+```
+
+Using getter and setter allow us to execute code when these properties are accessed.
+
+Note: This feature is only availabe ECMAScript 5 and above.
+
+## Static Functions
+
+Static functions are functions that can be called on a class without having to create an instance of the class first.
+
+```ts
+class StaticExample {
+  static printHello() {
+    console.log('Hello');
+  }
+}
+
+StaticExample.printHello();
+```
+
+## Static Properties
+
+If a property of a class is marked as static, then each instance of this class will have the share the static property.
+
+```ts
+class StaticProperty {
+  static count = 0;
+  updateCount() {
+    StaticProperty.count++;
+  }
+}
+
+let first = new StaticProperty();
+let second = new StaticProperty();
+
+first.updateCount();
+console.log(StaticProperty.count); // prints 1
+
+second.updateCount();
+console.log(StaticProperty.count); // print 2
+```
+
+## Namespaces
+
+We can use namespaces to deal with the situation when two classes share the same name, which will cause a compiler error. 
+
+```ts
+namespace NameSpace {
+  class One {
+  }
+  export class Two {
+    name: string;
+  }
+}
+
+let nsInstance = new NameSpace.Two();
+```
+
+We cannot create a new instance of the `One` class, because it is not exported from the namespace. Now, we can create new namespaces with the class name of `Two`, and there will not be any compiler errors.
