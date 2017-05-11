@@ -1,5 +1,7 @@
 # TypeScript Crash Course
 
+This guide assumes you have basic knowledge of how JavaScript works, so it will not go into details with explaining certain JavaScript topics.
+
 ## TypeScript Benefits
 
 - an extra compliation step.
