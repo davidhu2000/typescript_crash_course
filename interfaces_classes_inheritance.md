@@ -91,3 +91,96 @@ let phone = new SmartPhone('apple', 7);
 ```
 
 We can create more complex classes. See example [here](examples/class_example.ts).
+
+### Interface function definitions
+
+We can implement functions inside of interfaces.
+
+```ts
+interface IComplex {
+  name: string;
+  normalFunction(arg: string) : string;
+  optionalArgument(arg?: string);
+  defaultArgument(arg?: string);
+  restOperator(...args: string[]);
+  callbackFunc(callback: (arg: number) => string);
+}
+```
+
+Since we can not assign values in an interface, we have to use `?` for the default argument function and leave the assignment of the value to the class implementation.
+
+We do not declare a signature for the `constructor` inside interface. This will cause a compiler error, because the type of the constructor is implicitly typed.
+
+### Class Modifiers
+
+- A `public` class property can be accessed by any calling code.
+
+```ts
+class Strangers {
+  public title: string;
+}
+
+let strangerThings = new Strangers();
+strangerThings.title = 'Stranger Things';
+```
+
+- A `private` class property cannot be access outside the class
+
+```ts
+class Strangers {
+  private cost: number;
+}
+
+let strangerThings = new Strangers();
+strangerThings.cost = 10000000;
+```
+
+This will cause an error:
+
+> Property 'cost' is private and only accessible within class `Stranger`.
+
+Class functions are `public` by default.
+
+// TODO: Add notes about `protected`
+
+### Constructor shorthand
+
+We can specify the types inside the arguments for the constructor. This is a shorthand.
+
+```ts
+class LongCon {
+  public id: number;
+  private name: string;
+  constructor(id, name) {
+    // logic stuff
+  }
+}
+```
+
+The above class can be shortened as:
+
+```ts
+class ShortCon {
+  constructor(public id: number, private name: string) {
+    // logic stuff
+  }
+}
+```
+
+This shorthand syntax is available only within the `constructor` function.
+
+### Readonly properties
+
+This means that after the value is set, it cannot be modified. The `readonly` property can only be set within the `constructor` function.
+
+```ts
+class NoWriteAllowed {
+  readonly name: string;
+  constructor(name : string) {
+    this.name = name;
+  }
+}
+```
+
+Trying to set the value of `name` to something else will cause a compiler error.
+
