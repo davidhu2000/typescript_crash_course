@@ -181,4 +181,4 @@ In our abstract class, we defined an abstract function, which means that any cla
 
 The Factory Design Pattern uses a Factory class to return an intance of one of several possible classes. The factory class has one function: to create instances of different classes based on input.
 
-To see an example of this pattern, click [here](examples/factory_design_pattern.md).
+To see an example of this pattern, click [here](examples/factory_design_pattern.ts).
