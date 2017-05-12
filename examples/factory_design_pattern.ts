@@ -117,3 +117,21 @@ let factory = new PersonFactory();
 let p1 = factory.getPerson(new Date(2016, 1, 1));
 let p2 = factory.getPerson(new Date(2010, 1, 1));
 let p3 = factory.getPerson(new Date(1990, 1, 1));
+
+p1.printDetails();
+// Person : 
+// Date of Birth:      Jan 1 2015
+// Category:           Infant
+// Can sign contract:  false
+
+p2.printDetails();
+// Person : 
+// Date of Birth:      Jan 1 2010
+// Category:           Child
+// Can sign contract:  false
+
+p3.printDetails();
+// Person : 
+// Date of Birth:      Jan 1 1990
+// Category:           Adult
+// Can sign contract:  true
