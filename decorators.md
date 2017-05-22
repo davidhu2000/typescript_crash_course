@@ -9,7 +9,6 @@ In order to use decorators, a new compiler options needs to be added to the `tsc
 ```json
 {
   "compilerOptions": {
-    // other options...
     "experimentalDecorators": true
   }
 }
@@ -53,6 +52,7 @@ class ClassWithTwoDecorators {
 We will get an output like so
 
 > secondDecorator called.
+
 > simpleDecorator called.
 
 Decorators are evaulated in the order they appear in the code, but are called in reverse order.
