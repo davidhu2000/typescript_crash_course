@@ -57,4 +57,25 @@ We will get an output like so
 
 Decorators are evaulated in the order they appear in the code, but are called in reverse order.
 
+## Decorator Factories
 
+A decorator factory is a wrapper function that returns the decorator. 
+
+```ts
+function decoratorFactory(name: string) {
+  return function (constructor : Function) {
+    console.log(`decorator function called with ${name}`);
+  }
+}
+
+@decoratorFactory('testName');
+class ClassWithDecoratorFactory {
+  // class definitions
+}
+```
+
+This will produce an output:
+
+> decoration function called with testName
+
+It is important to note that the decorator factory must return a function definition. The parameters defined for the decorator factory can be used within the decorator function itself.
