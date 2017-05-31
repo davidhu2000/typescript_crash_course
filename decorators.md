@@ -79,3 +79,45 @@ This will produce an output:
 > decoration function called with testName
 
 It is important to note that the decorator factory must return a function definition. The parameters defined for the decorator factory can be used within the decorator function itself.
+
+## Class Decorator Parameters
+
+Class decorators will be invoked with the construction function of the class that has be decoreated.
+
+```ts
+function classConstructorDecorator(constructor: Function) {
+  console.log(`constructor: ${constructor}`);
+}
+
+@classConstructorDecorator
+class ClassWithDecorator {
+  // class definitions
+}
+```
+
+The output is
+
+> constructor: function ClassWithConstructor() { ... }
+
+The output shows that the decorator function is being called with the `constructor` function of the class it is decorating.
+
+We can update the decorator to modify the class properties.
+
+```ts
+function classConstructorDecorator(constructor : Function) {
+  console.log(`constructor: ${constructor}`);
+  console.log(`constructor.name: ${(<any>constructor).name}`);
+  constructor.prototype.randomProperty = "random value";
+}
+```
+
+Note: we need to cast a type of `any` to access the `name` property, since the `name` property of a function is only available from ECMAScript 6.
+
+In this decorator, we are actually modifying the class prototype and adding a property called `randomProperty`. In this example, we modified the class definition using a decorator.
+
+```ts
+let instance = new ClassWithDecorator();
+console.log(`instance.randomProperty: ${(<any>instance).randomProperty}`);
+```
+
+Here we create an instance of the class and logging the value of `randomProperty`. We need to cast the type of the variable `instance` to `any` to access the `randomProperty` property. This is because `randomProperty` is not defined on the class definition, but is injected into the class via the decorator.
