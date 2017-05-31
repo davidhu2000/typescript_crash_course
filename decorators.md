@@ -1,6 +1,6 @@
 # Decorators
 
-Decorators allow for the injction and query of metadata when working with class definitions. 
+Decorators allow for the injction and query of metadata when working with class definitions.
 
 ## Setup
 
@@ -52,14 +52,14 @@ class ClassWithTwoDecorators {
 We will get an output like so
 
 > secondDecorator called.
-
+>
 > simpleDecorator called.
 
 Decorators are evaulated in the order they appear in the code, but are called in reverse order.
 
 ## Decorator Factories
 
-A decorator factory is a wrapper function that returns the decorator. 
+A decorator factory is a wrapper function that returns the decorator.
 
 ```ts
 function decoratorFactory(name: string) {
@@ -124,7 +124,7 @@ Here we create an instance of the class and logging the value of `randomProperty
 
 ## Property Decorators
 
-Property decorators are decorators that can used on class properties. Property decorator is called with two parameters: the class prototype, and the property name. 
+Property decorators are decorators that can used on class properties. Property decorator is called with two parameters: the class prototype, and the property name.
 
 ```ts
 function propertyDecorator(target: any, propertyKey: string) {
@@ -146,4 +146,4 @@ THis code will output:
 > propertyKey: name
 
 Property decorators provides the ability to check whether a particular property has been declared on a class instance.
-
+å
