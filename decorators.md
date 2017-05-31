@@ -121,3 +121,29 @@ console.log(`instance.randomProperty: ${(<any>instance).randomProperty}`);
 ```
 
 Here we create an instance of the class and logging the value of `randomProperty`. We need to cast the type of the variable `instance` to `any` to access the `randomProperty` property. This is because `randomProperty` is not defined on the class definition, but is injected into the class via the decorator.
+
+## Property Decorators
+
+Property decorators are decorators that can used on class properties. Property decorator is called with two parameters: the class prototype, and the property name. 
+
+```ts
+function propertyDecorator(target: any, propertyKey: string) {
+  console.log(`target: ${target}`);
+  console.log(`target.constructor: ${target.constructor}`);
+  console.log(`propertyKey: ${propertyKey}`);
+}
+
+class ClassWithPropertyDecorator {
+  @propertyDecorator
+  name: string;
+}
+```
+
+THis code will output:
+
+> target: [object Object]
+> target.constructor: function ClassWithPropertyDecorator() {}
+> propertyKey: name
+
+Property decorators provides the ability to check whether a particular property has been declared on a class instance.
+
