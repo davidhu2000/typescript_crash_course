@@ -146,4 +146,84 @@ THis code will output:
 > propertyKey: name
 
 Property decorators provides the ability to check whether a particular property has been declared on a class instance.
-å
+
+## Static Property Decorators
+
+Property deorators can also be be applied to static class properties. The syntax is the same.
+
+```ts
+class StaticClass {
+  @propertyDecorator
+  static name: string;
+}
+```
+
+## Method Decorators
+
+Method decorators are decorators that can be applied to a method on a class. Method decorators are invoked at runtime with three parameters:
+
+- the class prototype
+- the method name
+- a method descriptor (optional)
+
+```ts
+function methodDecorator(target : any, methodName: string, descriptor? : PropertyDescriptor) {
+  console.log(`target: ${target}`);
+  console.log(`methodName: ${methodName}`);
+  console.log(`methodName: ${methodName}`);
+  console.log(`target[methodName]: ${target[methodName]}`);
+}
+```
+
+In the last line, we are logging `target[methodName]` to the console, which will log the actual function definition to the console.
+
+```ts
+class ClassWithMethodDecorator {
+  @methodDecorator
+  print(output : string) {
+    console.log(`ClassWithMethodDecorator.print ${output} called`);
+  }
+}
+```
+
+This will output:
+
+> target: [object object]
+> methodName: print
+> target[methodName]: function (output) { ... }
+
+### Using Method Decorators
+
+Since we can access the definition of a function, we can inject new functionality into the class.
+
+```ts
+function loggerDecorator(target : any, methodName : string, descriptor?: PropertyDescriptor) {
+  let originalFunction = target[methodName];
+
+  let newFunction = function() {
+    console.log('newFunction overrides originalFunction');
+    originalFunction.apply(this, arguments);
+  }
+
+  target[methodName] = newFunction;
+}
+```
+
+What we did here is added a console log statement to the definition of the `originalFunction`.
+
+```ts
+class ClassWithLogger {
+  @loggerDecorator
+  print(output : string) {
+    console.log(`ClassWithLogger.print ${output} called`);
+  }
+}
+
+let instance = new ClassWithLogger();
+instance.print('test');
+```
+
+This will output:
+
+> newFunction overrides originalFunction
+> ClassWithLogger.print test called
