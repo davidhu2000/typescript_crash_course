@@ -46,3 +46,4 @@ You can create multiple `tsconfig.json` files within the same project directory,
 2. [interfaces and classes](interfaces_classes.md)
 3. [inheritance](inheritance.md)
 4. [decorators](decorators.md)
+5. [generics](generics.md)
