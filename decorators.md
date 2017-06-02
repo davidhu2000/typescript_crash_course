@@ -227,3 +227,29 @@ This will output:
 
 > newFunction overrides originalFunction
 > ClassWithLogger.print test called
+
+## Parameter Decorators
+
+Parameters are used to decorate the parameters of a method.
+
+```ts
+function parameterDecorator(target : any, methodName : string, parameterIndex : number) {
+  console.log(`target: ${target}`);
+  console.log(`methodName: ${methodName}`);
+  console.log(`parameterIndex: ${parameterIndex}`);
+}
+
+class ClassWithParamDecorator {
+  print(@parameterDecorator value : string) {
+    // ...
+  }
+}
+```
+
+This will output
+
+> target: [object Object]
+> methodName: print
+> parameterIndex: 0
+
+Since we don't have any information about the parameter we are decorating, parameter decorators are really used to determine if a parameter is declared in a method.
