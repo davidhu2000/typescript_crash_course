@@ -19,3 +19,13 @@ class CombineInator<T> {
 ```
 
 The `<T>` syntax is used to indicate a generic type, and the name used for this generic type is `T`. The `combineArray` function also uses the generic type, meaning that `inputArray` must be an array of the type that was used to construct an instance of this class.
+
+## Creating generic class instances
+
+```ts
+let stringCombine = new CombineInator<string>();
+let numberCombine = new CombineInator<number>();
+```
+
+When creating a new instance, we can substitute `T` with types, classes, or interfaces.
+
