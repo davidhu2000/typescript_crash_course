@@ -1,5 +1,7 @@
 # TypeScript Crash Course
 
+[![Code Triagers Badge](https://www.codetriage.com/davidhu2000/typescript_crash_course/badges/users.svg)](https://www.codetriage.com/davidhu2000/typescript_crash_course)
+
 This guide assumes you have basic knowledge of how JavaScript works, so it will not go into details with explaining certain JavaScript topics.
 
 ## TypeScript Benefits
