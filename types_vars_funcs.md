@@ -50,7 +50,7 @@ TypeScript will infer that `variable` is of type string.
 
 TypeScript uses duck typing for more complex variable types.
 
-    let comPlex = { name: 'Hello', surname: 'World };
+    let comPlex = { name: 'Hello', surname: 'World' };
 
 If we want to reassign the two properties,
 
