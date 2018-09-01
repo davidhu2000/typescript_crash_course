@@ -87,7 +87,7 @@ Any object can be cast to the type of another by using the `< >` syntax. For exa
 
 This casting tells the compiler to treat the right hand side as type of `any`. This allows to assign an object with only one of the properties using the `< >` syntax.
 
-`any` shoudl be used as sparingly as possible. Overuse can cause coding errors that are difficult to find.
+`any` should be used as sparingly as possible. Overuse can cause coding errors that are difficult to find.
 
 ### Enums
 
