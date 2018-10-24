@@ -242,7 +242,7 @@ function withGuard(arg1: string | number, arg2: string | number) : string | numb
   if (typeof arg1 === 'string') {
     // perform logic
   }
-  if (typeof arg === 'number1' && typeof arg2 === 'number') {
+  if (typeof arg1 === number && typeof arg2 === number) {
     // perform logic with numbers
   }
 
@@ -273,6 +273,7 @@ type CallbackWithString = (string) => void;
 function func(callback: CallbackWithString) {
   // logic stuff
 }
+
 ```
 
 ### Null and undefined
@@ -288,7 +289,7 @@ doNothing(); // will cause a compiler error.
 
 > Supplied parameters do not match any signature of call target.
 
-WE can allow for `undefined` by creating an union with `undefined`.
+WE can allow for `undefined` by creating a union with `undefined`.
 
     let x : number | undefined;
 
