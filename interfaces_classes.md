@@ -2,7 +2,7 @@
 
 ## Interfaces
 
-An interface gives us a way to define what properties and methods an object must have. It is a compile-time language feature of TypeScript. The compiler does not generate any JavaScript code; it us only used by the comiler for type checking during compliation.
+An interface gives us a way to define what properties and methods an object must have. It is a compile-time language feature of TypeScript. The compiler does not generate any JavaScript code; it is only used by the compiler for type checking during compilation.
 
 ```ts
 interface IRandom {
@@ -17,7 +17,7 @@ We are saying that this object must have the `id` and `name` properties. If we t
 
 ### Optional properties
 
-We can denote that a property is option via `?`.
+We can denote that a property is optional via `?`.
 
 ```ts
 interface IOptional {
@@ -25,7 +25,7 @@ interface IOptional {
   name?: string;
 }
 
-let optionalObj = { id: 1 };
+let optionalObj : iOptional = { id: 1 };
 ```
 
 This will not cause an error.
@@ -202,7 +202,7 @@ class AccessExample {
 
 Using getter and setter allow us to execute code when these properties are accessed.
 
-Note: This feature is only availabe ECMAScript 5 and above.
+Note: This feature is only available ECMAScript 5 and above.
 
 ## Static Functions
 
@@ -220,13 +220,16 @@ StaticExample.printHello();
 
 ## Static Properties
 
-If a property of a class is marked as static, then each instance of this class will have the share the static property.
+If a property of a class is marked as static, then each instance of this class will share the same static property.
 
 ```ts
 class StaticProperty {
   static count = 0;
   updateCount() {
     StaticProperty.count++;
+  }
+  readCount() {
+    return StaticProperty.count;
   }
 }
 
@@ -237,7 +240,10 @@ first.updateCount();
 console.log(StaticProperty.count); // prints 1
 
 second.updateCount();
-console.log(StaticProperty.count); // print 2
+console.log(StaticProperty.count); // prints 2
+
+console.log(first.readCount()); // prints 2
+console.log(second.readCount()); // prints 2
 ```
 
 ## Namespaces

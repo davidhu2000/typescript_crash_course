@@ -56,7 +56,7 @@ class Multi implements IFirst, ISecond {
 
 ## The `super` keyword
 
-When both the base class and the inheriting class have the same function name, most commonly seen with the `constructor` function. The inheriting class need to call the base class constructor and pass through some arguments. This is called constructor overloading. The `super` keyword is used to call a base class's function with the same name.
+When both the base class and the inheriting class have the same function name, most commonly seen with the `constructor` function, the inheriting class needs to call the base class constructor and pass through some arguments. This is called constructor overloading. The `super` keyword is used to call a base class's function with the same name.
 
 ```ts
 class Base {
@@ -85,14 +85,14 @@ We can use the `super` keyword for any function in the child class that has the 
 class Base {
   public id: number;
   getProperties() : string {
-    return `id is ${id}`;
+    return `id is ${this.id}`;
   }
 }
 
-class Child {
+class Child extends Base {
   public name: string;
   getProperties() : string {
-    return `id is ${super.getProperties()}, name is ${this.name}`;
+    return `${super.getProperties()}, name is ${this.name}`;
   }
 }
 ```
@@ -124,7 +124,7 @@ If we try to access the `id` property from outside the class, we will get an err
 
 ## Abstract Class
 
-An abstract class is a definition of call that cannot be instantiated. It is a class that is designed to be inherited from. Abstract classes are used to allow for code resuse among a group of similar objects.
+An abstract class is a definition of call that cannot be instantiated. It is a class that is designed to be inherited from. Abstract classes are used to allow for code reuse among a group of similar objects.
 
 For example,
 
