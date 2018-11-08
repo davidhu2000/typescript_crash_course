@@ -176,7 +176,7 @@ function someFunction(str: string, callback: (str: string) => void) {
 }
 ```
 
-Here the function `someFunction` is created with a string and a fucntion argument. We specified that the callback takes a string argument. We use the `() =>` syntax to indicate that the callback is a function. The `void` keyword denotes that the function does not return a value.
+Here the function `someFunction` is created with a string and a function argument. We specified that the callback takes a string argument. We use the `() =>` syntax to indicate that the callback is a function. The `void` keyword denotes that the function does not return a value.
 
 We can call the function like so:
 
@@ -186,7 +186,7 @@ We are defining a callback function signature, so if the function passed in does
 
 ### Function overloads
 
-Since JavaScript is a dynamic language, we often want to call a function using different argument types. To account for this in TypeScript, we can use a specific synatx, called function overloads.
+Since JavaScript is a dynamic language, we often want to call a function using different argument types. To account for this in TypeScript, we can use a specific syntax, called function overloads.
 
 ```ts
 function canMath(x: string, y: string): string;
@@ -195,8 +195,8 @@ function canMath(x: any, y: any): any {
   return x + y;
 }
 
-add(1,1)      // returns 2;
-add('1','1')  // returns "11";
+canMath(1,1)      // returns 2;
+canMath('1','1')  // returns "11";
 ```
 
 We specific a function overload signature that takes two strings and returns a string.
@@ -242,7 +242,7 @@ function withGuard(arg1: string | number, arg2: string | number) : string | numb
   if (typeof arg1 === 'string') {
     // perform logic
   }
-  if (typeof arg === 'number1' && typeof arg2 === 'number') {
+  if (typeof arg1 === number && typeof arg2 === number) {
     // perform logic with numbers
   }
 
@@ -273,6 +273,7 @@ type CallbackWithString = (string) => void;
 function func(callback: CallbackWithString) {
   // logic stuff
 }
+
 ```
 
 ### Null and undefined
@@ -288,7 +289,7 @@ doNothing(); // will cause a compiler error.
 
 > Supplied parameters do not match any signature of call target.
 
-WE can allow for `undefined` by creating an union with `undefined`.
+WE can allow for `undefined` by creating a union with `undefined`.
 
     let x : number | undefined;
 

@@ -1,10 +1,10 @@
 # Decorators
 
-Decorators allow for the injction and query of metadata when working with class definitions.
+Decorators allow for the injection and query of metadata when working with class definitions.
 
 ## Setup
 
-In order to use decorators, a new compiler options needs to be added to the `tsconfig.json`. This option is named `experimentalDecorators` and needs to be set `true`.
+In order to use decorators, a new compiler option needs to be added to the `tsconfig.json`. This option is named `experimentalDecorators` and needs to be set `true`.
 
 ```json
 {
@@ -38,7 +38,7 @@ However, we did not create an instance of the class. We specified the class defi
 Multiple decorators can be applied to the same target. For example:
 
 ```ts
-function secondDecorator(consturctor : Function) {
+function secondDecorator(constructor : Function) {
   console.log('secondDecorator called.');
 }
 
@@ -55,7 +55,7 @@ We will get an output like so
 >
 > simpleDecorator called.
 
-Decorators are evaulated in the order they appear in the code, but are called in reverse order.
+Decorators are evaluated in the order they appear in the code, but are called in reverse order.
 
 ## Decorator Factories
 
@@ -82,7 +82,7 @@ It is important to note that the decorator factory must return a function defini
 
 ## Class Decorator Parameters
 
-Class decorators will be invoked with the construction function of the class that has be decoreated.
+Class decorators will be invoked with the construction function of the class that has been decorated.
 
 ```ts
 function classConstructorDecorator(constructor: Function) {
@@ -149,7 +149,7 @@ Property decorators provides the ability to check whether a particular property 
 
 ## Static Property Decorators
 
-Property deorators can also be be applied to static class properties. The syntax is the same.
+Property decorators can also be be applied to static class properties. The syntax is the same.
 
 ```ts
 class StaticClass {
