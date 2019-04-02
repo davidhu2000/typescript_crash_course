@@ -101,7 +101,7 @@ interface IComplex {
   name: string;
   normalFunction(arg: string) : string;
   optionalArgument(arg?: string);
-  defaultArgument(arg?: string);
+  defaultArgument(arg?: string = 'default string');
   restOperator(...args: string[]);
   callbackFunc(callback: (arg: number) => string);
 }
